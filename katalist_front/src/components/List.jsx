@@ -1,6 +1,7 @@
 import { Store } from "./Store";
 import HOST_API from "./HOST_API";
 import React, { useContext, useEffect} from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const List = () => {
     const { dispatch, state: { todo } } = useContext(Store);
@@ -34,7 +35,7 @@ const List = () => {
                 dispatch({ type: "update-item", item: todo });
             });
     };
-    
+
     const onDelete = (id) => {
         fetch(HOST_API + "/todo/"+id, {
             method: "DELETE"
@@ -68,8 +69,9 @@ const List = () => {
                         <td>{todo.id}</td>
                         <td>{todo.name}</td>
                         <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
-                        <td><button onClick={() => onDelete(todo.id)}>Eliminar</button></td>
-                        <td><button onClick={() => onEdit(todo)}>Editar</button></td>
+
+                        <td><button onClick={() => onDelete(todo.id)} className="btn btn-danger">Eliminar</button></td>
+                        <td><button onClick={() => onEdit(todo)} className="btn btn-success">Editar</button></td>
                         </tr>
                     })}
                     </tbody>

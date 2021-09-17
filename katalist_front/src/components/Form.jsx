@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Store } from "./Store";
 import HOST_API from "./HOST_API";
 import { useContext, useRef, useState } from 'react';
@@ -34,7 +35,7 @@ export const Form = () => {
         });
     }
 
-    
+
     const onAdd = (event) => {
         event.preventDefault();
   
@@ -72,7 +73,7 @@ export const Form = () => {
                 setState({ ...state, name: event.target.value })
             }}  >
         </input>
-        {item.id && <button onClick={onEdit}>Actualizar</button>}
-        {!item.id && <button onClick={onAdd}>Crear</button>}
+        {item.id && <button onClick={onEdit} className="btn btn-success">Actualizar</button>}
+        {!item.id && <button onClick={onAdd} className="btn btn-success">Crear</button>}
     </form>
 }

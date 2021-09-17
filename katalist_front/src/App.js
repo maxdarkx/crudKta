@@ -7,7 +7,9 @@ import List from './components/List';
 function App() {
   return <StoreProvider>
     <h3>To-Do List</h3>
-    <Form />
+    <div class="input-group mb-3">
+      <Form />
+    </div>
     <List />
   </StoreProvider>
 }
